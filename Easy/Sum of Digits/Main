@@ -1,0 +1,24 @@
+import java.util.*;
+import java.io.*;
+public class Main {
+  public static void main (String[] args) throws IOException {
+    //File file = new File(args[0]);
+    File file = new File("SumOfDigits.txt");
+    BufferedReader buffer = new BufferedReader(new FileReader(file));
+    String line;
+    int num;
+    int sum;
+    
+    while ((line = buffer.readLine()) != null) {
+      
+      line = line.trim();
+      num = Integer.parseInt(line);
+      sum = 0;
+      while( num>0) {
+        sum = sum + num % 10;
+        num = num / 10;
+      }
+      System.out.println(sum);
+    }
+  }
+}
