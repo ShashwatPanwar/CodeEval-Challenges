@@ -1,0 +1,24 @@
+import java.util.*;
+import java.io.*;
+public class Main {
+  public static void main (String[] args) throws IOException {
+    //File file = new File(args[0]);
+    File file = new File("Mod.txt");
+    BufferedReader buffer = new BufferedReader(new FileReader(file));
+    String line;
+    int num1;
+    int num2;
+    int quotient;
+    int mod = 69;
+        while ((line = buffer.readLine()) != null) {
+            line = line.trim();
+            
+            num1 = Integer.parseInt(line.substring(0, line.indexOf(",")));
+            num2 = Integer.parseInt(line.substring(line.indexOf(",") + 1));
+            quotient = num1/num2;
+            mod = num1 - (num2*quotient);
+            System.out.println(mod);
+        }
+    }
+}
+
