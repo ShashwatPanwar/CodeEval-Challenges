@@ -1,0 +1,16 @@
+import java.io.*;
+public class Main {
+    public static void main (String[] args) throws IOException {
+        //File file1 = new File(args[0]);
+        File file1 = new File("FileSize.txt");
+        BufferedReader buffer = new BufferedReader(new FileReader(file1));
+        String line;
+        long length = 0;
+        length = file1.length();
+        //while ((line = buffer.readLine()) != null) {
+        if(1>0){    
+        //line = line.trim();
+            System.out.println(length);
+        }
+    }
+}
