@@ -1,0 +1,52 @@
+import java.util.*;
+import java.io.*;
+public class Main {
+   public static void main (String[] args) throws IOException {
+      //File file = new File(args[0]);
+      File file = new File("Hex.txt");
+      BufferedReader buffer = new BufferedReader(new FileReader(file));
+      String line;
+      int decNum = 0;
+      int decValue = 0;
+      char x;
+      
+      while ((line = buffer.readLine()) != null) {
+         line = line.trim();
+         for(int i = 0; i < line.length() ; i++)
+         {
+            x = line.charAt(i);
+            if(x=='a')
+            {
+               decValue = 10;
+            }
+            else if(x=='b')
+            {
+               decValue = 11;
+            }
+            if(x=='c')
+            {
+               decValue = 12;
+            }
+            if(x=='d')
+            {
+               decValue = 13;
+            }
+            if(x=='e')
+            {
+               decValue = 14;
+            }
+            if(x=='f')
+            {
+               decValue = 15;
+            }
+            else
+            {
+               decValue = Character.getNumericValue(line.charAt(i));
+            }
+            decNum = (int) (decNum + (decValue*Math.pow(16,(line.length() - (i + 1)))));
+         }
+         System.out.println(decNum);
+         decNum = 0;
+      }
+   }
+}
