@@ -1,0 +1,41 @@
+import java.io.*;
+public class Main {
+   public static void main (String[] args) throws IOException {
+      //File file = new File(args[0]);
+      File file = new File("realFake.txt");
+      BufferedReader buffer = new BufferedReader(new FileReader(file));
+      String line;
+      String cardNum;
+      int sum1 = 0;
+      int sum2 = 0;
+      int totalSum = 0;
+      int mod = 0;
+      while ((line = buffer.readLine()) != null) {
+         line = line.trim();
+         cardNum = line.replaceAll(" ", "");
+         for (int i = 0; i<=15; i +=2) 
+         {
+            sum1 = sum1 + (Character.getNumericValue(cardNum.charAt(i))*2);
+         }
+         for (int f = 1; f<=15; f +=2) 
+         {
+            sum2 = sum2 + Character.getNumericValue(cardNum.charAt(f));
+         }
+            
+         totalSum = sum1 + sum2;
+         mod = totalSum%10;
+      
+         if(mod == 0)
+         {
+            System.out.println("Real");
+         }
+         else
+         {
+            System.out.println("Fake");
+         }
+         totalSum = 0;
+         sum1 = 0;
+         sum2 = 0;
+      }
+   }
+}
