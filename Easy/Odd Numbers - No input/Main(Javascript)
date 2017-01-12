@@ -6,4 +6,3 @@ var br = '\n';
 			  process.stdout.write(i + br)
 			}		
 		}
- 
