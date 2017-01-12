@@ -1,0 +1,24 @@
+import java.io.*;
+public class Main {
+   public static void main (String[] args) throws IOException {
+      File file = new File(args[0]);
+      //File file = new File("EvenNumbers.txt");
+      BufferedReader buffer = new BufferedReader(new FileReader(file));
+      String line;
+      int num = 0;
+      int mod;
+      while ((line = buffer.readLine()) != null) {
+         line = line.trim();
+         num = Integer.parseInt(line);
+         mod = num%2;
+         if (mod == 0)
+         {
+            System.out.println(1);
+         }
+         else
+         {
+            System.out.println(0);
+         }
+      }
+   }
+}
