@@ -1,0 +1,28 @@
+import java.io.*;
+public class Main {
+    public static void main (String[] args) throws IOException {
+        //File file = new File(args[0]);
+        File file = new File("right.txt");
+        BufferedReader buffer = new BufferedReader(new FileReader(file));
+        String line;
+        String newLine;
+        String word;
+        String character;
+        int index;
+        while ((line = buffer.readLine()) != null) {
+            line = line.trim();
+            newLine = line.replaceAll(" ","");
+            word = newLine.substring(0, newLine.indexOf(","));
+            character = newLine.substring(newLine.indexOf(",") + 1);
+           index = (word.lastIndexOf(character) + 1);
+           if (index>0)
+           {
+             System.out.println(index);
+           }
+           else
+           {
+             System.out.println("-1");
+           }
+        }
+    }
+}
