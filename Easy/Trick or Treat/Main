@@ -1,0 +1,23 @@
+import java.io.*;
+public class Main {
+   public static void main (String[] args) throws IOException {
+      //File file = new File(args[0]);
+      File file = new File("trick.txt");
+      BufferedReader buffer = new BufferedReader(new FileReader(file));
+      String line, newLine;
+      int vamp, zomb, witch, houses, totalCandy, totalChildren, candyPerChild ;
+     
+      while ((line = buffer.readLine()) != null) {
+         line = line.trim();
+         newLine = line.replaceAll(" ", "");
+         vamp = Integer.parseInt(newLine.substring(newLine.indexOf(":") + 1, newLine.indexOf(",")));
+         zomb = Integer.parseInt(newLine.substring(newLine.indexOf("Z") + 8, newLine.indexOf("W") - 1));
+         witch = Integer.parseInt(newLine.substring(newLine.indexOf("W") + 8, newLine.indexOf("H") - 1));
+         houses = Integer.parseInt(newLine.substring(newLine.lastIndexOf(":") + 1));
+         totalCandy = ((vamp*3) + (zomb*4) + (witch*5))*houses;
+         totalChildren = vamp + zomb + witch;
+         candyPerChild = (int)(Math.floor(totalCandy/totalChildren));
+         System.out.println(candyPerChild);
+      }
+   }
+}
