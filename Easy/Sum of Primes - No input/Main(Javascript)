@@ -1,0 +1,34 @@
+//Determine if a given number is a prime
+						
+						function isPrime(num) {
+							// Loop through all canidates of numbers that might divide
+							for (var x = 2; x <= Math.round(num/2); x++)
+								// Check if it divides cleanly
+								if (num % x === 0)
+									return false;
+							// Otherwise, it is a prime
+							return true;
+						}
+
+						
+						 //Keep track of the number of primes we have summed
+						
+						var numPrimes = 0;
+						
+						 //Keep track of the summation of primes
+						
+						var sumPrimes = 0;
+						// Keep track of the number we are on, as we loop through
+						
+						var i = 2;
+
+						while (numPrimes < 1000) {
+							if (isPrime(i)) {
+								// Add this number to the sum of primes
+								sumPrimes += i;
+								numPrimes++;
+							}
+							i++;
+						}
+
+						console.log(sumPrimes);
